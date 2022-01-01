@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 // handle errors
 const handleErrors = (err) => {
-    console.log(err.message, err.code);
+    // console.log(err.message, err.code);
     let errors = { email: '', password: '' };
 
     if(err.message == 'incorrect email'){
@@ -30,7 +30,7 @@ const handleErrors = (err) => {
 const maxAge = 3 * 24 * 30 * 60;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, 'sumit prajapati', {
+    return jwt.sign({ id }, process.env.SECRET_KEY, {
         expiresIn: maxAge
     });
 }

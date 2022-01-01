@@ -6,7 +6,7 @@ const requireAuth = (req,res,next)=>{
 
     // check json web taken exists & verified
     if(token){
-        jwt.verify(token,'sumit prajapati',(err,decodedToken)=>{
+        jwt.verify(token,process.env.SECRET_KEY,(err,decodedToken)=>{
             if(err)
                 res.redirect('/login');
             else
@@ -20,7 +20,7 @@ const requireAuth = (req,res,next)=>{
 const checkUser = (req,res,next) =>{
     const token = req.cookies.jwt;
     if(token){
-        jwt.verify(token,'sumit prajapati',async (err,decodedToken)=>{
+        jwt.verify(token,process.env.SECRET_KEY,async (err,decodedToken)=>{
             if(err){
                 res.locals.user = null;
                 next();
