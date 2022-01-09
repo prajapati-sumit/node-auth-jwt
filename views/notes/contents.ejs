@@ -1,0 +1,16 @@
+<%- include('../partials/header'); -%>
+
+<ul class="recipes">
+
+  <% for(var i=0; i < notes.length; i++) { %>
+    <a href='notes/<%=notes[i]._id%>'>
+      <li class="recipe">
+        <h4>Sticky Note</h4>
+        <p><%= notes[i].text %></p>
+      </li>
+    </a>
+ <% } %>
+
+</ul>
+
+<%- include('../partials/footer'); -%>
