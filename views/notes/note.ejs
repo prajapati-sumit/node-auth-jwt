@@ -1,18 +1,20 @@
 <%- include('../partials/header'); -%>
 
     <div class="single">
-
+        
         <h2>
             <%= note.text %>
         </h2>
-        <form action="/notes/<%= note._id%>" method="PUT">
-            <button class="btn" type="submit">Update</button>
-        </form>
-        <form action="/notes/<%= note._id%>" method="DELETE">
-            <button class="btn" type="submit"> Delete</button>
-        </form>
+        <div class="utility">
+            <form class="solo" action="/notes/update/<%= note._id%>" method="GET">
+                <button class="btn" type="submit">Update</button>
+            </form>
+            <form class="solo" action="/notes/delete/<%= note._id%>" method="GET">
+                <button class="btn" id="deleteBtn" type="submit"> Delete</button>
+            </form>
+        </div>
 
     </div>
 
 
-<%- include('../partials/footer'); -%>
+    <%- include('../partials/footer'); -%>

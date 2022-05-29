@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const cookieParser = require('cookie-parser');
+const bodyParser=require('body-parser');
 const {requireAuth, checkUser} = require('./middleware/authMiddleware');
 
 const app = express();
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:true}));
 
 // view engine
 app.set('view engine', 'ejs');
@@ -31,8 +33,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 // routes
 app.get('*',checkUser);
 app.get('/', (req, res) => res.render('home'));
-// app.use();
 
-// app.get('/notes', requireAuth,(req, res) => res.render('notes/contents'));
+
 app.use(authRoutes);
-app.use('/notes',requireAuth,noteRoutes);
+app.use('/notes',requireAuth,checkUser,noteRoutes);

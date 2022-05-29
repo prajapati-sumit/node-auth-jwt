@@ -1,0 +1,10 @@
+<%- include('../partials/header'); -%>
+
+    <form action="/notes/update/<%=note._id%>" method="POST">
+        <label for="text">Edit the note</label>
+        <input type="text" name="text" value="<%= note.text %>" required />
+        <button>Done</button>
+    </form>
+
+
+<%- include('../partials/footer'); -%>
