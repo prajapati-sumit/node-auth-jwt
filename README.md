@@ -11,3 +11,13 @@ Currently supports feature of saving personal notes with the following functiona
 - Updating and Deleting notes
 ![all notes](/public/update_and_delete.png)
 
+# References
+ 1. https://mongoosejs.com/docs/guide.html
+ 2. https://www.mongodb.com/docs/
+ 3. https://jwt.io/
+ 4. https://nodejs.org/en/docs/
+ 5. https://expressjs.com/en/5x/api.html
+ 6. https://www.npmjs.com/package/cookie-parser
+ 7. https://www.npmjs.com/package/bcrypt
+ 
+ 
